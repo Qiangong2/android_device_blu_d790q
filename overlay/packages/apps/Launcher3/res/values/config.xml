@@ -1,0 +1,3 @@
+<resources>
+    <bool name="is_enter_settings">true</bool><!--Add BUG_ID:DWLEBM-226 zhaopenglin 20160408-->
+</resources>

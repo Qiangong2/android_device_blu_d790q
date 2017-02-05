@@ -1,0 +1,5 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!--A:DWLEBM-190 guoshuai 20160401(start)-->
+    <bool name="remove_app_permission_notification">true</bool>
+    <!--A:DWLEBM-190 guoshuai 20160401(end)-->
+</resources>

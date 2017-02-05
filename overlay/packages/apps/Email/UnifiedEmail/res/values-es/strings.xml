@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+     Copyright (C) 2011 Google Inc.
+     Licensed to The Android Open Source Project.
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- add BUG_ID:JLLBB-79 liupeng 20150831 (start) -->
+  <string-array name="compose_modes">
+    <item msgid="8631190144210933782">"Re"</item>
+    <item msgid="4085029907540221568">"Re a todos"</item>
+    <item msgid="857480048798815437">"Fw"</item>
+  </string-array>
+	<string name="reply" msgid="2032052598496088561">"Re"</string>
+	<string name="reply_all" msgid="7257248094625487557">"Re a todos"</string>
+	<string name="forward" msgid="6822914459902983767">"Fw"</string>
+	<string name="respond_inline" msgid="6797117334768201180">"Re entre líneas"</string>
+	<string name="replyto_heading" msgid="8563992423173220512">"Re a: "</string>
+	<string name="notification_action_reply" msgid="6015299134424685297">"Re"</string>
+    <string name="notification_action_reply_all" msgid="20020468410400912">"Re a todos"</string>
+	<string name="preferences_default_reply_all_title" msgid="7088691949152598569">"Re a todos"</string>
+  <!-- add BUG_ID:JLLBB-79 liupeng 20150831 (end) -->
+</resources>

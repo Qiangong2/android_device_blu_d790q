@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Checkbox label that will disable 2G-3G network data connection when user-defined limit is reached. [CHAR LIMIT=26] -->
+    <string name="data_usage_disable_3g_limit">Set 2G-4G data limit</string>
+    <!-- Tab title for showing 2G and 3G data usage. [CHAR LIMIT=10] -->
+    <string name="data_usage_tab_3g">2G-4G</string>
+    <!-- Toggle switch title for enabling 2G and 3G data network connections. [CHAR LIMIT=32] -->
+    <string name="data_usage_enable_3g">2G-4G data</string>
+</resources>

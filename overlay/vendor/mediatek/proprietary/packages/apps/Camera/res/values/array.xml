@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (C) 2008 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+
+<resources>
+<string-array name="pref_camera_picturesize_entries" translatable="false">
+        <!-- TODO: Change to a better name of the preference.
+                The first element of the array sould be
+                "pref_camera_picturesize_entry_2592x1944". However, we are too
+                late for the translation. Since we show the same label as the
+                second item, we just use the second one instead.
+        -->
+		<item>@string/pref_camera_picturesize_entry_3264x2448_16_9</item>
+		<item>@string/pref_camera_picturesize_entry_3264x2448_4_3</item>
+		<item>@string/pref_camera_picturesize_entry_3328x1872_16_9</item>
+		<item>@string/pref_camera_picturesize_entry_3072x1728_16_9</item>
+		<item>@string/pref_camera_picturesize_entry_2592x1936_4_3</item>
+		<item>@string/pref_camera_picturesize_entry_2560x1440_16_9</item>
+		<item>@string/pref_camera_picturesize_entry_2048x1536_4_3</item>
+		<item>@string/pref_camera_picturesize_entry_2048x1536_16_9</item>
+		<item>@string/pref_camera_picturesize_entry_1600x1200_4_3</item>
+		<item>@string/pref_camera_picturesize_entry_1280x720_16_9</item>
+		<item>@string/pref_camera_picturesize_entry_1024x768_4_3</item>
+		<item>@string/pref_camera_picturesize_entry_640x480_16_9</item>
+		<item>@string/pref_camera_picturesize_entry_640x480_4_3</item>
+		<item>@string/pref_camera_picturesize_entry_320x240_16_9</item>
+		<item>@string/pref_camera_picturesize_entry_320x240_16_9</item>
+        <item>@string/pref_camera_picturesize_entry_320x240_4_3</item>
+		
+    </string-array>
+	<string-array name="pref_camera_picturesize_entryvalues" translatable="false">
+        <item>3840x2160</item><!-- 8m_16_9 -->
+		<item>3264x2448</item> <!-- 8m_4_3 -->
+		<item>3328x1872</item><!-- 6m_16_9 -->
+		<item>3072x1728</item><!-- 5m_16_9 -->
+		<item>2560x1920</item><!-- 5m_4_3 -->
+		<item>2560x1440</item><!-- 4m_16_9 -->
+		<item>2048x1536</item><!-- 3m_4_3 -->
+		<item>2048x1152</item><!-- 2m_16_9 -->
+		<item>1600x1200</item><!-- 2m_4_3 -->
+		<item>1280x720</item><!-- 1m_16_9 -->
+		<item>1024x768</item><!-- 1m_4_3 -->
+		<item>768x432</item><!-- 0.3m_16_9 -->
+        <!--<item>512x288</item>-->
+		<item>640x480</item><!-- vga_4_3 -->
+		<item>320x180</item><!-- qvgam_16_9 -->
+		<item>256x144</item><!-- qvgam_16_9 -->
+		<item>320x240</item><!-- qvgam_4_3 -->
+    </string-array>
+	
+</resources>
