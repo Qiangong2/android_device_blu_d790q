@@ -21,10 +21,10 @@
      for different hardware and product builds.  Do not translate. -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-   <!--A:DELSLMY-535 xiangkezhu 20160304(start)-->
+   <!--A:DELSLMY-535 xiangkezhu 20160304(start)
     <bool name="wifi_directs_rename">true</bool>
-    <!--A:DELSLMY-535 xiangkezhu 20160304(end)-->
+    A:DELSLMY-535 xiangkezhu 20160304(end)-->
 	<!--Modify DWYQLSSMY-984 chenshu 20160507 start-->
-    <string name="default_sms_application" translatable="false">com.google.android.apps.messaging</string>
+    <string name="default_sms_application" translatable="false">com.android.messaging</string>
     <!--Modify DWYQLSSMY-984 chenshu 20160507 end-->
 </resources>
