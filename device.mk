@@ -1,6 +1,9 @@
 # Device.mk for BLU STUDIO G D790Q
 #
 
+# If there, include non-open source parts
+-include vendor/blu/d790q/d790qVendor.mk
+
 PRODUCT_COPY_FILES += device/blu/d790q/init.mt6580.rc:root/init.mt6580.rc
 PRODUCT_COPY_FILES += device/blu/d790q/factory_init.rc:root/factory_init.rc
 PRODUCT_COPY_FILES += device/blu/d790q/init.modem.rc:root/init.modem.rc
