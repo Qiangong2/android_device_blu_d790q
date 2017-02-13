@@ -1,6 +1,0 @@
-#########################################
-# Platform dependent label definitions
-#
-
-#subtitle framework notify pixel data to Gallery apk  via /mnt/subt/xx.tmp file
-type subtitle_data_file, file_type,data_file_type;

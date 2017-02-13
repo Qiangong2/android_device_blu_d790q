@@ -1,90 +1,90 @@
-# BoardConfig.mk for BLU Studio G D790Q
-#
-
 LOCAL_PATH := device/blu/d790q
 
-# Target
+USE_CAMERA_STUB := true
+
+# inherit from the proprietary version
+-include vendor/blu/d790q/BoardConfigVendor.mk
+
+TARGET_NO_BOOTLOADER := true
+TARGET_BOOTLOADER_BOARD_NAME := d790q
+TARGET_OTA_ASSERT_DEVICE := d790q_Base,d790qG,d790qA,d790qD,d790q
+
+# Platform
+TARGET_BOARD_PLATFORM := mt6580
+
+# Architecture
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_VARIANT := cortex-a7
 TARGET_CPU_SMP := true
+TARGET_CPU_VARIANT := cortex-a7
 ARCH_ARM_HAVE_NEON := true
+ARCH_ARM_HAVE_VFP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
-TARGET_BOARD_PLATFORM := mt6580
 
-# Userimages
-BOARD_SYSTEMIMAGE_PARTITION_SIZE:=838860800
-BOARD_CACHEIMAGE_PARTITION_SIZE:=134217728
-BOARD_USERDATAIMAGE_PARTITION_SIZE:=1240465408
+# ARGUMENTS
+BOARD_KERNEL_CMDLINE += \
+	bootopt=64S3,32S1,32S1 \
+	androidboot.selinux=permissive
+BUILD_NUMBER := $(shell date +%s)
+BOARD_KERNEL_OFFSET := 0x00008000
+BOARD_RAMDISK_OFFSET := 0x04000000
+BOARD_TAGS_OFFSET := 0x0e000000
+BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_TAGS_OFFSET)
+
+# PARTITIONS
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
+BOARD_FLASH_BLOCK_SIZE := 131072
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_FLASH_BLOCK_SIZE := 4096
+TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
+BOARD_HAS_LARGE_FILESYSTEM := true
 
-# Kernel
-BOARD_KERNEL_CMDLINE = bootopt=64S3,32S1,32S1
-BOARD_KERNEL_BASE = 0x80000000
-BOARD_KERNEL_OFFSET = 0x00008000
-BOARD_RAMDISK_OFFSET = 0x04000000
-BOARD_TAGS_OFFSET = 0xE000000
-BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_TAGS_OFFSET)
-TARGET_KERNEL_SOURCE := kernel/blu/d790q
-TARGET_KERNEL_CONFIG := lineage-d790q_defconfig
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.8
 
-RECOVERY_VARIANT := twrp
+# USB OTG and External Sdcard
+TARGET_USES_EXFAT := true
+TARGET_USES_NTFS := true
 
-# Recovery
+# GRAPHICS
+USE_OPENGL_RENDERER := true
+BOARD_EGL_CFG := $(LOCAL_PATH)/egl.cfg
+
+# RECOVERY
+BOARD_HAS_NO_SELECT_BUTTON := true
+
+RECOVERY_VARIANT := carliv
+
 ifneq ($(RECOVERY_VARIANT),twrp)
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/etc/recovery.fstab
-else
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/etc/twrp.fstab
 endif
 
-# Headers
-TARGET_BOARD_KERNEL_HEADERS := $(LOCAL_PATH)/kernel-headers
-
-TARGET_LDPRELOAD += libxlog.so
-
-# Overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-
-# WiFi
-WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_HOSTAPD_DRIVER := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_mt66xx
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_mt66xx
-WIFI_DRIVER_FW_PATH_PARAM := "/dev/wmtWifi"
-WIFI_DRIVER_FW_PATH_STA := STA
-WIFI_DRIVER_FW_PATH_AP := AP
-WIFI_DRIVER_FW_PATH_P2P := P2P
-
-# Don't know what this does...
-BOARD_SYSTEM_SIZE_KB := 1228800
-
-# sepolicy
-BOARD_SEPOLICY_DIRS +=  $(LOCAL_PATH)/sepolicy
-
-# Flags
-TARGET_GLOBAL_CFLAGS   += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
-
-# Miscellaneous
-EXTENDED_FONT_FOOTPRINT := true
-BUILD_NUMBER := $(shell date +%s)
-USE_OPENGL_RENDERER := true
-BLOCK_BASED_OTA := false
+# CARLIV
+ifeq ($(RECOVERY_VARIANT),carliv)
+TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+DEVICE_SCREEN_WIDTH := 480
+DEVICE_SCREEN_HEIGHT := 854
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
+TARGET_RECOVERY_LCD_BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
+VIBRATOR_TIMEOUT_FILE := /sys/devices/virtual/timed_output/vibrator/enable
+DEVICE_RESOLUTION := 480x854
+BOARD_HAS_MTK_CPU := true
+BOARD_INCLUDE_CRYPTO := false
+BOARD_USE_ADOPTED_STORAGE := true
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"font_10x18.h\"
+endif
 
 # TWRP
+ifeq ($(RECOVERY_VARIANT),twrp)
 DEVICE_RESOLUTION := 480x800
 TARGET_SCREEN_HEIGHT := 800
 TARGET_SCREEN_WIDTH := 480
 TW_THEME := portrait_mdpi
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/etc/twrp.fstab
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 TW_BRIGHTNESS_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
@@ -102,4 +102,7 @@ TW_CRYPTO_FS_TYPE := "ext4"
 TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/userdata"
 TW_CRYPTO_MNT_POINT := "/data"
 TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,noatime,discard,noauto_da_alloc,data=ordered"
+TW_EXCLUDE_SUPERSU := true
 TW_USE_TOOLBOX := false
+endif
+
