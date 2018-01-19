@@ -1,6 +1,6 @@
 #
-# system.prop for d790q
+# system.prop for codename
 #
 
-ro.ctr.forbid_format=/frp,/lk,/uboot,/logo,/metadata,/nvdata,/nvram,/secro
-ro.ctr.forbid_mount=/frp,/lk,/uboot,/logo,/metadata,/nvdata,/nvram,/secro
+qemu.hw.mainkeys=0
+ro.sf.lcd_density=240
